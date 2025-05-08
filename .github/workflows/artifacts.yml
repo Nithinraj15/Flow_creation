@@ -1,7 +1,5 @@
 name: Artifacts Demo
-
 on: push
-
 jobs:
   job_1:
     name: Upload Artifact
@@ -13,7 +11,6 @@ jobs:
         with:
           name: file
           path: file.txt
-
   job_2:
     name: Download Artifact
     runs-on: ubuntu-latest
