@@ -1,26 +1,26 @@
-name: Passing Values_1
+name: Passing Values to Next Steps
 
 on: 
   workflow_dispatch:
 
 jobs:
-  Passing_values_bw_steps:
+  passing-values-bw-steps:
     runs-on: ubuntu-latest
     steps:
-      - name: Setting the name to the values
+      - name: Set the value using ENV Vars
         run: |
           echo "variableName=this-is-value" >> $GITHUB_ENV
 
-      - name: Create Passing the values
+      - name: Create Variables
         id: var_source_step
         run: |
-          echo "Task Process"
-          echo "var1_name=Bavi" >> $GITHUB_OUTPUT
-          echo "var2_date=$(date +'%y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
+          echo "Performing a random task"
+          echo "var1_name=TechSchool" >> $GITHUB_OUTPUT
+          echo "var2_date=$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
 
-      - name: Getting the variables
+      - name: Get Variable Value
         run: |
-          echo "Print the values"
+          echo "Printing the values"
           echo "variableName: ${{ env.variableName }}"
           echo "var1_name: ${{ steps.var_source_step.outputs.var1_name }}"
           echo "var2_date: ${{ steps.var_source_step.outputs.var2_date }}"
